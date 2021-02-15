@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="StFrenteAndroid.CadUnidadeMedida">
+    <ContentPage.Content>
+        <Frame 
+             Margin="8,28,0,0"
+                        Padding="5"
+                        CornerRadius="10"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        BackgroundColor="White" 
+                        HeightRequest="500"
+                        WidthRequest="600">
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="SalvarUnidadeMedida" Text="Salvar" Clicked="SalvarUnidadeMedida_Clicked"></Button>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label x:Name="LabelCadUnidadeMedida" TextColor="Black" Text="Código"></Label>
+                        <Entry x:Name="InputCadUnidadeMedida" Placeholder="Código" WidthRequest="100" Keyboard="Numeric"></Entry>
+                        <Label TextColor="Red" x:Name="DownCadUnidadeMedida" FontSize="Micro" IsVisible="False" ></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label x:Name="LabelUnidadeMedida" TextColor="Black" Text="Descrição"></Label>
+                        <Entry x:Name="InputUnidadeMedida" Placeholder="Descrição" WidthRequest="350"></Entry>
+                        <Label TextColor="Red" x:Name="DownUnidadeMedida" FontSize="Micro" IsVisible="False" ></Label>
+                    </StackLayout>
+                </StackLayout>
+
+                <ListView x:Name="Tabela_UnidadeMedida" ItemSelected="Tabela_UnidadeMedida_ItemSelected">
+                    <ListView.Header>
+                        <Grid>
+                            <Grid RowSpacing="1"
+                                   ColumnSpacing="6"                                           
+                                   Padding="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="75" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition  Width="85" />
+                                </Grid.ColumnDefinitions>
+                                <Label  Grid.Column="0" TextColor="Black" Text="Código" BackgroundColor="white" FontSize="16"></Label>
+                                <Label  Grid.Column="1" TextColor="Black" Text="Descrição" BackgroundColor="white" FontSize="16" ></Label>
+                                <Label  Grid.Column="2" TextColor="Black" Text="Remover" BackgroundColor="white" FontSize="16" ></Label>
+                            </Grid>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <ViewCell.View >
+                                    <Grid 
+                                         RowSpacing="3"
+                                          ColumnSpacing="6"                                           
+                                          Padding="3"
+                                          >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="75" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition  Width="85" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label  Grid.Column="0" Text="{Binding idUnida}" TextColor="Black" BackgroundColor="white" FontSize="16" ></Label>
+                                        <Label  Grid.Column="1" Text="{Binding Descricao}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                        <Button Grid.Column="2" TextColor="Black" Text="Remover" BackgroundColor="#eb5454" CommandParameter="{Binding .}" FontSize="13" x:Name="BtnRemover" Clicked="BtnRemover_Clicked"/>
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</pages:PopupPage>

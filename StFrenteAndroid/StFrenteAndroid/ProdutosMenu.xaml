@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StFrenteAndroid.ProdutosMenu">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <StackLayout>
+                    <Button  Text="Cadastrar Produto" x:Name="BtnCadProd" Clicked="BtnCadProd_Clicked"></Button>
+                </StackLayout>
+            </StackLayout>
+            <ListView x:Name="Tabela_Produto" >
+                <ListView.Header>
+                    <Grid>
+                        <Grid RowSpacing="1"
+                                   ColumnSpacing="6"                                           
+                                   Padding="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="135" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="120" />
+                                <ColumnDefinition Width="120" />
+                                <ColumnDefinition Width="130" />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"  TextColor="Black" Text="Código" BackgroundColor="white" FontSize="13"></Label>
+                            <Label Grid.Column="1"  TextColor="Black" Text="C. Barras" BackgroundColor="white" FontSize="13" ></Label>
+                            <Label Grid.Column="2"  TextColor="Black" Text="C. Fabricante" BackgroundColor="white" FontSize="13" ></Label>
+                            <Label Grid.Column="3"  TextColor="Black" Text="Descrição" BackgroundColor="white" FontSize="13" ></Label>
+                            <Label Grid.Column="4"  TextColor="Black" Text="VLR. Custo" BackgroundColor="white" FontSize="13" ></Label>
+                            <Label Grid.Column="5"  TextColor="Black" Text="Indice" BackgroundColor="white" FontSize="13" ></Label>
+                            <Label Grid.Column="6"  TextColor="Black" Text="Venda" BackgroundColor="white" FontSize="13" ></Label>
+                            <Label Grid.Column="7"  TextColor="Black" Text="Departamento" BackgroundColor="white" FontSize="13" ></Label>
+                            <Label Grid.Column="8"  TextColor="Black" Text="Sub Departamento" BackgroundColor="white" FontSize="13" ></Label>
+                            <Label Grid.Column="9"  TextColor="Black" Text="Fornecedor" BackgroundColor="white" FontSize="13" ></Label>
+                            <Label Grid.Column="10" TextColor="Black" Text="CNCM" BackgroundColor="white" FontSize="13" ></Label>
+                        </Grid>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <ViewCell.View >
+                                <Grid 
+                                         RowSpacing="3"
+                                          ColumnSpacing="6"                                           
+                                          Padding="3"
+                                          >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70" />
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="135" />
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="130" />
+                                        <ColumnDefinition Width="100" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label  Grid.Column="0" Text="{Binding Codigo}" TextColor="Black" BackgroundColor="white" FontSize="16" ></Label>
+                                    <Label  Grid.Column="1" Text="{Binding CdBarras}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                    <Label  Grid.Column="2" Text="{Binding CdFabricante}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                    <Label  Grid.Column="3" Text="{Binding Descricao}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                    <Label  Grid.Column="4" Text="{Binding CustoUnd}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                    <Label  Grid.Column="5" Text="{Binding PorcMargem}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                    <Label  Grid.Column="6" Text="{Binding PrcoVendUnd}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                    <Label  Grid.Column="7" Text="{Binding Depart}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                    <Label  Grid.Column="8" Text="{Binding SubDepart}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                    <Label  Grid.Column="9" Text="{Binding FornPrinc}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                    <Label  Grid.Column="10" Text="{Binding CNCM}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

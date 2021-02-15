@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StFrenteAndroid.CadFiscal"
+             xmlns:controls="clr-namespace:StFrenteAndroid.Controls"           
+              xmlns:local="clr-namespace:App"
+             xmlns:behavior="clr-namespace:StFrenteAndroid.Mascaras">
+    <ContentPage.Content>
+        <StackLayout x:Name="IdCadFiscal">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <StackLayout>
+                    <Button  Text="Gravar" x:Name="BtnGravar" Clicked="BtnGravar_Clicked"></Button>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="3" Margin="5" WidthRequest="250">
+                    <StackLayout>
+                        <Label TextColor="Black" Text="Série da nota Fiscal"></Label>
+                        <Entry x:Name="InputNtFiscal" Placeholder="Série nota" HorizontalOptions="FillAndExpand" Keyboard="Numeric"></Entry>
+                        <Label TextColor="Red" x:Name="DownInputNtFiscal" FontSize="Micro" IsVisible="False" ></Label>
+                    </StackLayout>
+                </Frame>
+                <StackLayout HorizontalOptions="EndAndExpand">
+                    <Label TextColor="Black" Text="Ambiente Atual"></Label>
+                    <Entry x:Name="InputAmbAt" Placeholder="Ambiente Atual" WidthRequest="350"></Entry>
+                    <Label TextColor="Red" x:Name="DownInputAmbAt" FontSize="Micro" IsVisible="False" ></Label>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Margin="30">
+                <controls:TabView x:Name="TabView"
+                          HeaderBackgroundColor="Transparent"
+                          HeaderSelectionUnderlineColor="#1E90FF"
+                          HeaderSelectionUnderlineThickness="3"
+                          HeaderSelectionUnderlineWidth="164"
+                          HeightRequest="500"
+                          HeaderTabTextColor="#1E90FF">
+
+                    <controls:TabItem HeaderTabTextFontSize="14"
+                              HeaderText="Dados do Emitente"
+                              HeaderTextColor="#0000FF">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout>
+                                    <Label x:Name="LabelRazao" TextColor="Black" Text="Razão Social/Nome"></Label>
+                                    <Entry x:Name="InputRazaoSocial" Placeholder="Razão Social" WidthRequest="350"></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputRazaoSocial" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="LabelFantasia" TextColor="Black" Text="Nome Fantasia"></Label>
+                                    <Entry x:Name="InputNomFantasia" Placeholder="Nome Fantasia" WidthRequest="350"></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputNomFantasia" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="LblCNPJ" TextColor="Black" Text="CNPJ" ></Label>
+                                    <Entry x:Name="InputCnpj" Placeholder="_________/____-__" Keyboard="Numeric" WidthRequest="200">
+                                        <Entry.Behaviors>
+                                            <behavior:MaskedBehavior Mask="XX.XXX.XXX/XXXX-XX" />
+                                        </Entry.Behaviors>
+                                    </Entry>
+                                    <Label TextColor="Red" x:Name="DownInputCnpj" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="lblConIpi" TextColor="Black" Text="Contribuinte ipi" ></Label>
+                                    <CheckBox x:Name="InputContribIpi"  ></CheckBox>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout>
+                                    <Label x:Name="LblLogradouro" Text="Logradouro" TextColor="Black" ></Label>
+                                    <Entry x:Name="InputLogradouro" Placeholder="Logradouro" WidthRequest="350"></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputLogradouro" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="LblNumero" Text="Número" TextColor="Black"></Label>
+                                    <Entry x:Name="InputNumero" Placeholder="Número" WidthRequest="100"></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputNumero" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="LblComplemento" Text="Complemento"  TextColor="Black"></Label>
+                                    <Entry x:Name="InputComplemento" Placeholder="Complemento" WidthRequest="350"></Entry>
+                                    <Label x:Name="DownComplemento" TextColor="Red"  FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="LblBairro" Text="Bairro"  TextColor="Black"></Label>
+                                    <Entry x:Name="InputBairro" Placeholder="Bairro" WidthRequest="350" ></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputBairro" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout>
+                                    <Label x:Name="LblCodMun" Text="Código Município"  TextColor="Black"></Label>
+                                    <Entry x:Name="InputCodMunicipio" Placeholder="Código Município" WidthRequest="100" Keyboard="Numeric" ></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputCodMunicipio" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="LblMun" Text="Município"  TextColor="Black"></Label>
+                                    <Entry x:Name="InputMunicipio" Placeholder="Município" WidthRequest="350" ></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputMunicipio" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="lblUF" TextColor="Black" Text="UF" ></Label>
+                                    <Entry x:Name="InputUF" WidthRequest="50"  ></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputUF" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="lblCod" TextColor="Black" Text="Cod. UF" ></Label>
+                                    <Entry x:Name="InputCodUF" WidthRequest="50"  ></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputCodUF" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="LblCep" TextColor="Black" Text="CEP"></Label>
+                                    <Entry x:Name="InputCEP"  Placeholder="_____-___" WidthRequest="150" Keyboard="Numeric">
+                                        <Entry.Behaviors>
+                                            <behavior:MaskedBehavior Mask="XXXXX-XXX" />
+                                        </Entry.Behaviors>
+                                    </Entry>
+                                    <Label TextColor="Red" x:Name="DownInputCEP" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="LblFone" TextColor="Black" Text="Fone"></Label>
+                                    <Entry x:Name="InputFone" Placeholder="(___) _____-____" WidthRequest="200" Keyboard="Numeric">
+                                        <Entry.Behaviors>
+                                            <behavior:MaskedBehavior Mask="(XXX) XXXXX-XXXX" />
+                                        </Entry.Behaviors>
+                                    </Entry>
+                                    <Label TextColor="Red" x:Name="DownInputFone" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="lblInsEstadual" TextColor="Black" Text="Inscrição Estadual" ></Label>
+                                    <Entry x:Name="InputInsEstadual"  WidthRequest="200"  ></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputInsEstadual" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" >
+                                <StackLayout>
+                                    <Label x:Name="lblRegimeTrib" TextColor="Black" Text="Regime Tributário" ></Label>
+                                    <Picker x:Name="PkRegimeTrib" WidthRequest="350">
+                                        <Picker.Items>
+                                            <x:String>Simples Nacional</x:String>
+                                            <x:String>Lucro Presumido</x:String>
+                                            <x:String>Lucro Real</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                    <Label TextColor="Red" x:Name="DownPkRegimeTrib" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Label x:Name="LblAlicotaICMS" VerticalOptions="Center" TextColor="Black" Text="Alíquota do ICMS aplicável de cálculo do crédito (Simples Nacional)."></Label>
+                                <StackLayout>
+                                    <Entry x:Name="InputAlicotaICMS" WidthRequest="150" ></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputAlicotaICMS" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </controls:TabItem>
+                    <controls:TabItem HeaderTabTextFontSize="14"
+                              HeaderText="Caminhos/Path"
+                              HeaderTextColor="#0000FF">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout>
+                                    <Label x:Name="LblPathCertificado" TextColor="Black" Text="Path do Certificado Eletronico" ></Label>
+                                    <Entry x:Name="InputPathCertificado" Focused="InputPathCertificado_Focused" Placeholder="Path do Certificado Eletronico" WidthRequest="390" ></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputPathCertificado" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="LblSenhaCertificado" TextColor="Black" Text="Senha Certificado" ></Label>
+                                    <Entry x:Name="InputSenhaCertificado" Placeholder="Senha Certificado" WidthRequest="190" ></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputSenhaCertificado" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <!-- 
+                                <StackLayout>
+                                    <Label x:Name="LblPathSchema" Text="Path do Schemas de Validação" ></Label>
+                                    <Entry x:Name="InputPathSchema" Placeholder="Path do Schemas de Validação" WidthRequest="390" ></Entry>
+                                </StackLayout>                                
+                                <StackLayout>
+                                    <Label x:Name="LblPathArquivar" TextColor="Black" Text="Path para Arquivar Notas/Mensagens/Retornos" ></Label>
+                                    <Entry x:Name="InputPathArquivar" Focused="InputPathArquivar_Focused" Placeholder="Path para Arquivar Notas/Mensagens/Retornos" WidthRequest="420" ></Entry>
+                                </StackLayout>
+                                -->
+                                <Label x:Name="LblGerarArquivoZip" TextColor="Black" VerticalOptions="Center" Text="Gerar arquivo Zip para NFCE contador 64bitz"></Label>
+                                <CheckBox x:Name="ChkGerarArquivo"></CheckBox>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <!--
+                                <StackLayout>
+                                    <Label x:Name="LblBackNotasDig" TextColor="Black" Text="Path para Backup dos Arquivos de Notas Digitais" ></Label>
+                                    <Entry x:Name="InputBackNotasDig" Placeholder="Path para Backup dos Arquivos de Notas Digitais" WidthRequest="420" ></Entry>
+                                </StackLayout>
+                                -->
+                                <StackLayout>
+                                    <Label x:Name="LblEmailDestino" TextColor="Black" Text="E-mail destino para os arquivos Xml" ></Label>
+                                    <Entry x:Name="InputEmailDestino" Placeholder="E-mail destino para os arquivos Xml" WidthRequest="350" ></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputEmailDestino" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="LblImpPadrao" TextColor="Black" Text="Impressora padrão para NFCE"></Label>
+                                    <Entry x:Name="InputImpPadrao" Placeholder="Impressora padrão para NFCE" WidthRequest="390" ></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputImpPadrao" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </controls:TabItem>
+                    <controls:TabItem HeaderTabTextFontSize="14"
+                              HeaderText="Nota Fiscal Consumidor"
+                              HeaderTextColor="#0000FF">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <!--                                
+                                <StackLayout>
+                                    <Label x:Name="LblArquivNt" TextColor="Black" Text="Path para Arquivar Notas/Mensagens/Retornos"></Label>
+                                    <Entry x:Name="InputArquivoNTM" Placeholder="Path para Arquivar Notas" WidthRequest="390" ></Entry>
+                                </StackLayout>                                
+                                <StackLayout>
+                                    <Label x:Name="LblBdNfce" TextColor="Black" Text="Local/Banco de Dados de NFCE"></Label>
+                                    <Entry x:Name="InputBdNfce" Placeholder="Local/Banco de Dados de NFCE" WidthRequest="390" ></Entry>
+                                </StackLayout>                                  
+                                <StackLayout>
+                                    <Label x:Name="LblBdPrinc" Text="Local/Banco de Dados de Principal"></Label>
+                                    <Entry x:Name="InputBdPrinc" Placeholder="Local/Banco de Dados de Principal" WidthRequest="390" ></Entry>
+                                </StackLayout>                                
+                                -->
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal" >
+                                    <CheckBox x:Name="InputVusuImp" ></CheckBox>
+                                    <Label x:Name="LblVisuImpr" VerticalOptions="Center" TextColor="Black" Text="Visualizar antes de Imprimir" ></Label>
+                                </StackLayout>
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label x:Name="LblSolDad" TextColor="Black" VerticalOptions="Center" Text="          |  Solicitar dados do cliente em notas acima de R$ "></Label>
+                                        <StackLayout>
+                                            <Entry x:Name="InputDadClie" Placeholder=" " WidthRequest="150" Keyboard="Numeric" ></Entry>
+                                            <Label TextColor="Red" x:Name="DownInputDadClie" FontSize="Micro" IsVisible="False" ></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label x:Name="LblIdTolk" TextColor="Black" VerticalOptions="Center" Text="          |  Id Token "></Label>
+                                    <StackLayout>
+                                        <Entry x:Name="InputIdTolk" Placeholder="Id Token " WidthRequest="150" ></Entry>
+                                        <Label TextColor="Red" x:Name="DownInputIdTolk" FontSize="Micro" IsVisible="False" ></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" >
+                                <Label x:Name="LblCSC" TextColor="Black" VerticalOptions="Center" Text="CSC "></Label>
+                                <StackLayout>
+                                    <Entry x:Name="InputCSC" Placeholder="CSC " WidthRequest="150" ></Entry>
+                                    <Label TextColor="Red" x:Name="DownInputCSC" FontSize="Micro" IsVisible="False" ></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </controls:TabItem>
+                </controls:TabView>
+            </StackLayout>
+            <Frame BorderColor="Gray" CornerRadius="5" Padding="3" Margin="5" WidthRequest="250" HeightRequest="100">
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label TextColor="Black" Text="Modalidade de Determinação da BC do ICMS"></Label>
+                        <Picker x:Name="PkModalBcICMS" >
+                            <Picker.Items>
+                                <x:String >Margem Valor Agregado (%)</x:String>
+                                <x:String >Pauta (Valor)</x:String>
+                                <x:String >Preço Tabelado Máx. (valor)</x:String>
+                                <x:String>Valor da operação</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label TextColor="Red" x:Name="DownPkModalBcICMS" FontSize="Micro" IsVisible="False" ></Label>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="EndAndExpand">
+                        <Label TextColor="Black" Text="Modalidade de Determinação da BC do ICMS ST"></Label>
+                        <Picker x:Name="PkModalBcICMSST" >
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Preço tabelado ou máximo  sugerido</x:String>
+                                    <x:String>Lista Negativa (valor)</x:String>
+                                    <x:String>Lista Positiva (valor)</x:String>
+                                    <x:String>Lista Neutra (valor)</x:String>
+                                    <x:String>Margem Valor Agregado (%)</x:String>
+                                    <x:String>Pauta (valor)</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                        <Label TextColor="Red" x:Name="DownPkModalBcICMSST" FontSize="Micro" IsVisible="False" ></Label>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

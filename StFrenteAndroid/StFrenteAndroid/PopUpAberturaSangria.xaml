@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"  
+             x:Class="StFrenteAndroid.PopUpAberturaSangria">
+    <ContentPage.Content>
+        <Frame 
+             Margin="8,28,0,0"
+                        Padding="5"
+                        CornerRadius="10"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        BackgroundColor="White" 
+                        HeightRequest="170"
+                        WidthRequest="380">
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Frame BorderColor="Gray" CornerRadius="5" Padding="3" Margin="5">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox x:Name="ChkAbertura" CheckedChanged="ChkAbertura_CheckedChanged" />
+                                <Label Text="Abertura" x:Name="LblAbertura"  TextColor="Black" VerticalOptions="Center" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox x:Name="ChkSuprimento" CheckedChanged="ChkSuprimento_CheckedChanged" />
+                                <Label Text="Suprimento" x:Name="LblSuprimento"  TextColor="Black" VerticalOptions="Center" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox x:Name="ChkSangria" CheckedChanged="ChkSangria_CheckedChanged" />
+                                <Label Text="Sangria" x:Name="LblSangria"  TextColor="Black" VerticalOptions="Center" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox x:Name="ChkFechamento" CheckedChanged="ChkFechamento_CheckedChanged" />
+                                <Label Text="Fechamento     " x:Name="LblFechamento" TextColor="Black" VerticalOptions="Center" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <StackLayout>
+                        <Label Text="Valor" x:Name="LblValor" TextColor="Black" />
+                        <Entry x:Name="InputValor" Placeholder="Valor" WidthRequest="220"  />
+                        <Label TextColor="Red" x:Name="DownInputValor" FontSize="Micro" IsVisible="False" ></Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Button Text="  OK  " x:Name="BtnOkVlr" Clicked="BtnOkVlr_Clicked"/>
+                            <Button Text="  CANCELAR  " x:Name="BtnCancelar" Clicked="BtnCancelar_Clicked" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</pages:PopupPage>

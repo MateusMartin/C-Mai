@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StFrenteAndroid.CadFornecedor"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"  
+             xmlns:controls="clr-namespace:StFrenteAndroid.Controls"     
+             xmlns:local="clr-namespace:App"
+             xmlns:behavior="clr-namespace:StFrenteAndroid.Mascaras"
+          >
+    <ContentPage.Content>
+        <Frame 
+             Margin="8,28,0,0"
+                        Padding="5"
+                        CornerRadius="10"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        BackgroundColor="White" 
+                        HeightRequest="650"
+                        WidthRequest="1050">
+            <StackLayout Margin="30">
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="Filtrar" Text="Filtrar" Clicked="Filtrar_Clicked" IsVisible="False" />
+                    <Button x:Name="SalvarForn" Text="Salvar" Clicked="SalvarForn_Clicked" />
+                    <Button x:Name="Consulta" Text="Consultar" Clicked="Consulta_Clicked" />
+                </StackLayout>
+                <ScrollView x:Name="StkCadastro" IsVisible="true">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label x:Name="LblCodigoForn" TextColor="Black" Text="Código"></Label>
+                                <Entry x:Name="InputCodigoForn" Placeholder="Código" WidthRequest="100" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownCodigoForn" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblRazaoSocial" TextColor="Black" Text="Razão Social"></Label>
+                                <Entry x:Name="InputRazaoSocial" Placeholder="Razao Social" WidthRequest="350" ></Entry>
+                                <Label TextColor="Red" x:Name="DownRazaoSocial" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblCEP" TextColor="Black" Text="CEP"></Label>
+                                <Entry x:Name="InputCEP" Placeholder="_____-___" Keyboard="Numeric" WidthRequest="100" Unfocused="InputCEP_Unfocused">
+                                    <Entry.Behaviors>
+                                        <behavior:MaskedBehavior Mask="XXXXX-XXX" />
+                                    </Entry.Behaviors>
+                                </Entry>
+                                <Label TextColor="Red" x:Name="DownCEP" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblRua" TextColor="Black" Text="Rua"></Label>
+                                <Entry x:Name="InputRua" Placeholder="Rua" WidthRequest="320" ></Entry>
+                                <Label TextColor="Red" x:Name="DownRua" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblNumero" TextColor="Black" Text="Número"></Label>
+                                <Entry x:Name="InputNumero" Placeholder="Numero" WidthRequest="80" Keyboard="Numeric" ></Entry>
+                                <Label TextColor="Red" x:Name="DownNumero" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label x:Name="LblComplemento" TextColor="Black" Text="Complemento"></Label>
+                                <Entry x:Name="InputComplemento" Placeholder="Comp" WidthRequest="100" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownComplemento" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblBairro" TextColor="Black" Text="Bairro"></Label>
+                                <Entry x:Name="InputBairro" Placeholder="Bairro" WidthRequest="170" ></Entry>
+                                <Label TextColor="Red" x:Name="DownBairro" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblCidade" TextColor="Black" Text="Cidade"></Label>
+                                <Entry x:Name="InputCidade" Placeholder="Rua" WidthRequest="170" ></Entry>
+                                <Label TextColor="Red" x:Name="DownCidade" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblUF" TextColor="Black" Text="UF"></Label>
+                                <Entry x:Name="InputUF" Placeholder="UF" WidthRequest="50" ></Entry>
+                                <Label TextColor="Red" x:Name="DownUF" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblCdMunicip" TextColor="Black" Text="Código de Municípios"></Label>
+                                <Entry x:Name="InputCdMunicip" Placeholder="Cod Município" WidthRequest="170" ></Entry>
+                                <Label TextColor="Red" x:Name="DownCdMunicip" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblCdPais" TextColor="Black" Text="Código País"></Label>
+                                <Entry x:Name="InputCdPais" Placeholder="Cod País" WidthRequest="95" Keyboard="Numeric" ></Entry>
+                                <Label TextColor="Red" x:Name="DownCdPais" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblPais" TextColor="Black" Text="País"></Label>
+                                <Entry x:Name="InputPais" Placeholder="Cod Município" WidthRequest="170" Keyboard="Text"></Entry>
+                                <Label TextColor="Red" x:Name="DownPais" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label x:Name="LblCnpj" TextColor="Black" Text="CNPJ/CEI/CPF"></Label>
+                                <Entry x:Name="InputCnpj" Placeholder="CNPJ/CEI/CPF" WidthRequest="180" Keyboard="Numeric" Unfocused="InputCnpj_Unfocused" >
+                                    
+                                </Entry>
+                                <Label TextColor="Red" x:Name="DownCnpj" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblInscricao" TextColor="Black" Text="Inscrição"></Label>
+                                <Entry x:Name="InputInscricao" Placeholder="Inscrição" WidthRequest="100" Keyboard="Text"></Entry>
+                                <Label TextColor="Red" x:Name="DownInscricao" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblFone1" TextColor="Black" Text="Fone 1"></Label>
+                                <Entry x:Name="InputFone1" Placeholder="Fone 1" WidthRequest="150" Keyboard="Numeric">
+                                    <Entry.Behaviors>
+                                        <behavior:MaskedBehavior Mask="(XX) XXXXX-XXXX" />
+                                    </Entry.Behaviors>
+                                </Entry>
+                                <Label TextColor="Red" x:Name="DownFone1" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblFone2" TextColor="Black" Text="Fone 2"></Label>
+                                <Entry x:Name="InputFone2" Placeholder="Fone 2" WidthRequest="150" Keyboard="Numeric">
+                                    <Entry.Behaviors>
+                                        <behavior:MaskedBehavior Mask="(XX) XXXXX-XXXX" />
+                                    </Entry.Behaviors>
+                                </Entry>
+                                <Label TextColor="Red" x:Name="DownFone2" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Center">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                    <CheckBox x:Name="ChkDiferIcms" VerticalOptions="Center"></CheckBox>
+                                    <Label x:Name="LblDiferIcms" VerticalOptions="Center" TextColor="Black" Text="Usar Diferimento ICMS"></Label>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DownDiferIcms" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label x:Name="LblEmail" TextColor="Black" Text="Email"></Label>
+                                <Entry x:Name="InputEmail" Placeholder="Email" WidthRequest="380" Keyboard="Text"></Entry>
+                                <Label TextColor="Red" x:Name="DownEmail" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblHomePage" TextColor="Black" Text="Home-Page"></Label>
+                                <Entry x:Name="InputHomePage" Placeholder="Home-Page" WidthRequest="350" Keyboard="Text"></Entry>
+                                <Label TextColor="Red" x:Name="DownHomePage" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblBanco" TextColor="Black" Text="Banco"></Label>
+                                <Entry x:Name="InputBanco" Placeholder="Banco" WidthRequest="200" Keyboard="Text"></Entry>
+                                <Label TextColor="Red" x:Name="DownBanco" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label x:Name="LblAgencia" TextColor="Black" Text="Agência"></Label>
+                                <Entry x:Name="InputAgencia" Placeholder="Agência" WidthRequest="150" Keyboard="Text"></Entry>
+                                <Label TextColor="Red" x:Name="DownAgencia" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblConta" TextColor="Black" Text="Conta"></Label>
+                                <Entry x:Name="InputConta" Placeholder="Conta" WidthRequest="150" Keyboard="Text"></Entry>
+                                <Label TextColor="Red" x:Name="DownConta" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="LblScore" TextColor="Black" Text="Score"></Label>
+                                <Entry x:Name="InputScore" Placeholder="Score" WidthRequest="70" Keyboard="Text"></Entry>
+                                <Label TextColor="Red" x:Name="DownScore" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label x:Name="LblObs" TextColor="Black" Text="Observação"></Label>
+                            <Editor x:Name="InputObs" TextColor="Black" HeightRequest="100" />
+                            <Label TextColor="Red" x:Name="DownObs" FontSize="Micro" IsVisible="False" ></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+                <StackLayout x:Name="StkConsulta" IsVisible="False">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                                <CheckBox x:Name="ChkRazao" IsChecked="True" CheckedChanged="ChkRazao_CheckedChanged"> </CheckBox>
+                                <Label Text="Razão Social" TextColor="Black"></Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox x:Name="ChkCidade" CheckedChanged="ChkCidade_CheckedChanged" ></CheckBox>
+                                <Label Text="Cidade" TextColor="Black"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                                <CheckBox x:Name="ChkCnpj" CheckedChanged="ChkCnpj_CheckedChanged" ></CheckBox>
+                                <Label Text="CNPJ/CPF" TextColor="Black"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Margin="30,0,0,0">
+                            <Label x:Name="LblFiltro" TextColor="Black" Text="Razão Social"></Label>
+                            <Entry x:Name="InputFiltro" Placeholder="" WidthRequest="250" Keyboard="Text" Unfocused="InputFiltro_Unfocused"></Entry>
+                            <Label TextColor="Red" x:Name="DownFiltro" FontSize="Micro" IsVisible="False" ></Label>
+                        </StackLayout>
+                    </StackLayout>
+                    <ListView x:Name="Tabela_Fornecedores" ItemSelected="Tabela_Fornecedores_SelectedItem">
+                        <ListView.Header>
+                            <Grid>
+                                <Grid RowSpacing="1"
+                                   ColumnSpacing="6"                                           
+                                   Padding="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition  Width="75" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition  Width="170" />
+                                        <ColumnDefinition  Width="85" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label  Grid.Column="0" TextColor="Black" Text="Código" BackgroundColor="white" FontSize="16"></Label>
+                                    <Label  Grid.Column="1" TextColor="Black" Text="Nome/Razão" BackgroundColor="white" FontSize="16" ></Label>
+                                    <Label  Grid.Column="2" TextColor="Black" Text="CNPJ/CPF" BackgroundColor="white" FontSize="16" ></Label>
+                                    <Label  Grid.Column="3" TextColor="Black" Text="Cidade" BackgroundColor="white" FontSize="16" ></Label>
+                                </Grid>
+                            </Grid>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell >
+                                    <ViewCell.View >
+                                        <Grid 
+                                         RowSpacing="3"
+                                          ColumnSpacing="6"                                           
+                                          Padding="3"
+                                          >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="75" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition  Width="170" />
+                                                <ColumnDefinition  Width="85" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label  Grid.Column="0" Text="{Binding Codigo}" TextColor="Black"  FontSize="16" ></Label>
+                                            <Label  Grid.Column="1" Text="{Binding RazaoSocial}"  TextColor="Black"  FontSize="16"></Label>
+                                            <Label  Grid.Column="2" Text="{Binding CNPJ}"  TextColor="Black"  FontSize="16"></Label>
+                                            <Label  Grid.Column="3" Text="{Binding Cidade}"  TextColor="Black"  FontSize="16"></Label>
+                                            <!--  <Label Grid.Column="2" IsChecked="{Binding Carrinho}" IsEnabled="False" HorizontalOptions="Center" /> -->
+                                            <!--  <Label Grid.Column="3" TextColor="Black" Text="Remover" BackgroundColor="#eb5454" CommandParameter="{Binding .}" FontSize="13" x:Name="BtnRemover" Clicked="BtnRemover_Clicked"/> -->
+                                        </Grid>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>            
+        </Frame>
+    </ContentPage.Content>
+</pages:PopupPage>

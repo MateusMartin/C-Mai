@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="StFrenteAndroid.CadCNCM">
+    <ContentPage.Content>
+        <Frame 
+             Margin="8,28,0,0"
+                        Padding="5"
+                        CornerRadius="10"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        BackgroundColor="White" 
+                        HeightRequest="500"
+                        WidthRequest="660">
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="SalvarCNCM" Text="Salvar" Clicked="SalvarCNCM_Clicked"></Button>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label x:Name="LabelCodCNCM" TextColor="Black" Text="Código"></Label>
+                        <Entry x:Name="InputCodCNCM" Placeholder="Código" WidthRequest="100" Keyboard="Numeric"></Entry>
+                        <Label TextColor="Red" x:Name="DownCodCNCM" FontSize="Micro" IsVisible="False" ></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label x:Name="LabelCNCM" TextColor="Black" Text="Descrição"></Label>
+                        <Entry x:Name="InputCNCM" Placeholder="CNCM" WidthRequest="350"></Entry>
+                        <Label TextColor="Red" x:Name="DownCNCM" FontSize="Micro" IsVisible="False" ></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label x:Name="LabelCEST" TextColor="Black" Text="C.E.S.T"></Label>
+                        <Entry x:Name="InputCEST" Placeholder="CEST" WidthRequest="350"></Entry>
+                        <Label TextColor="Red" x:Name="DownCEST" FontSize="Micro" IsVisible="False" ></Label>
+                    </StackLayout>
+                </StackLayout>
+
+                <ListView x:Name="Tabela_CNCM" ItemSelected="Tabela_CNCM_ItemSelected">
+                    <ListView.Header>
+                        <Grid>
+                            <Grid RowSpacing="1"
+                                   ColumnSpacing="6"                                           
+                                   Padding="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="75" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition  Width="100" />
+                                    <ColumnDefinition  Width="85" />
+                                </Grid.ColumnDefinitions>
+                                <Label  Grid.Column="0" TextColor="Black" Text="Código" BackgroundColor="white" FontSize="16"></Label>
+                                <Label  Grid.Column="1" TextColor="Black" Text="CNCM" BackgroundColor="white" FontSize="16" ></Label>
+                                <Label  Grid.Column="2" TextColor="Black" Text="CEST" BackgroundColor="white" FontSize="16" ></Label>
+                                <Label  Grid.Column="3" TextColor="Black" Text="Remover" BackgroundColor="white" FontSize="16" ></Label>
+                            </Grid>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <ViewCell.View >
+                                    <Grid 
+                                         RowSpacing="3"
+                                          ColumnSpacing="6"                                           
+                                          Padding="3"
+                                          >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="75" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition  Width="100" />
+                                            <ColumnDefinition  Width="85" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label  Grid.Column="0" Text="{Binding CodCNCM}" TextColor="Black" BackgroundColor="white" FontSize="16" ></Label>
+                                        <Label  Grid.Column="1" Text="{Binding Descricao}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                        <Label  Grid.Column="2" Text="{Binding CEST}"  TextColor="Black" BackgroundColor="white" FontSize="16"></Label>
+                                        <Button Grid.Column="3" TextColor="Black" Text="Remover" BackgroundColor="#eb5454" CommandParameter="{Binding .}" FontSize="13" x:Name="BtnRemover" Clicked="BtnRemover_Clicked"/>
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</pages:PopupPage>

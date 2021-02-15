@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StFrenteAndroid.NovoProduto"
+             xmlns:controls="clr-namespace:StFrenteAndroid.Controls"           
+             xmlns:local="clr-namespace:App"
+             xmlns:behavior="clr-namespace:StFrenteAndroid.Mascaras">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label x:Name="IdCadastro"
+                       Text="Cadastros"
+                       FontSize="20"
+                       TextColor="Black"
+                       ></Label>
+            </StackLayout>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Button  Text="Gravar" x:Name="BtnGravar" Clicked="BtnGravar_Clicked"></Button>
+                </StackLayout>
+            </StackLayout>
+            <controls:TabView x:Name="TabView"
+                          HeaderBackgroundColor="Transparent"
+                          HeaderSelectionUnderlineColor="#1E90FF"
+                          HeaderSelectionUnderlineThickness="3"
+                          HeaderSelectionUnderlineWidth="164"
+                          HeightRequest="500"
+                          HeaderTabTextColor="#1E90FF"
+                          Padding="20"
+                              >
+                <controls:TabItem HeaderTabTextFontSize="14"
+                              HeaderText="Dados do Produto"
+                              HeaderTextColor="#0000FF">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblCodProduto" Text="Código"></Label>
+                                <Entry x:Name="InputCodProduto" Placeholder="Codigo" WidthRequest="100" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputCodProduto" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblBarras" Text="Barras"></Label>
+                                <Entry x:Name="InputBarras" Placeholder="Barras" WidthRequest="150" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputBarras" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblQtde" Text="Qtde Padrão"></Label>
+                                <Entry x:Name="InputLblQtde" Placeholder="Qtde Padrão" WidthRequest="120"  Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputQtdePadrão" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="PrdLblDescricao" Text="Descrição"></Label>
+                                <Entry x:Name="PrdInputDescricao" Placeholder="Descrição" WidthRequest="350"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputPrdDescricao" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblCodFabric" Text="C. Frabicante"></Label>
+                                <Entry x:Name="InputCodFabric" Placeholder="C. Frabicante" WidthRequest="150" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputCodFabric" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblAtivo" Text="Ativo"></Label>
+                                <CheckBox x:Name="InputAtivo" ></CheckBox>
+                                <Label TextColor="Red" x:Name="DownInputAtivo" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblUndMed" Text="Unidade de Medida"></Label>
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="InputCodUndMed" Placeholder="Cod" WidthRequest="50" Keyboard="Numeric"></Entry>
+                                    <Picker x:Name="InputUndMed"  WidthRequest="150" 
+                                            SelectedIndexChanged="InputUndMed_SelectedIndexChanged"                                            
+                                            ItemsSource="{Binding UnidadeMedida}"
+                                            ItemDisplayBinding="{Binding Descricao}">
+                                    </Picker>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DownInputUndMed" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblCstUnit" Text="Custo Unitário" ></Label>
+                                <Entry x:Name="InputCstUnit" Placeholder="Custo Unitário" WidthRequest="150" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputCstUnit" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblAplicar" Text="Aplicar %" ></Label>
+                                <Entry x:Name="InputAplicar" Placeholder="Aplicar" WidthRequest="70" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputAplicar" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblVndUnit" Text="Venda Unitário" ></Label>
+                                <Entry x:Name="InputVndUnit" Placeholder="Vend Unitário" WidthRequest="120" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownVndUnit" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblDescM" Text="Desc. Max %" ></Label>
+                                <Entry x:Name="InputDescM" Placeholder="Desc. Max" WidthRequest="100" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownDescM" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblMAtacado" Text="M. Atacado" ></Label>
+                                <Entry x:Name="InputMAtacado" Placeholder="Desc. Max" WidthRequest="100" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputMAtacado" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblVlrAtacado" Text="Vlr Atacado" ></Label>
+                                <Entry x:Name="InputVlrAtacado" Placeholder="Vlr Atacado" WidthRequest="100" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputVlrAtacado" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblAcresCom" Text="Acres. Com %" ></Label>
+                                <Entry x:Name="InputAcresCom" Placeholder="Acres. Com" WidthRequest="100" Keyboard="Numeric" IsReadOnly="True"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputAcresCom" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblFormPrec" Text="C. Formação Preço" ></Label>
+                                <Entry x:Name="InputFormPrec" Placeholder="C. Formação Preço" WidthRequest="180" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputFormPrec" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblDtPickAtCad" Text="D.At. Cad" ></Label>
+                                <DatePicker x:Name="DtPickAtCad"  ></DatePicker>
+                                <Label TextColor="Red" x:Name="DownDtPickAtCad"  FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblDtPickAtPrco" Text="D.At. Preço" ></Label>
+                                <DatePicker x:Name="DtPickAtPrco"  ></DatePicker>
+                                <Label TextColor="Red" x:Name="DowmDtPickAtPrco"  FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblFornPri" Text="Fornecedor Princípal" ></Label>
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="InputCodFornPri" Placeholder="Cod" Unfocused="InputCodFornPri_Unfocused" WidthRequest="50" Keyboard="Numeric"></Entry>
+                                    <Picker x:Name="InputFornPri" Title="Toque para selecionar" WidthRequest="400" 
+                                            SelectedIndexChanged="InputFornPri_SelectedIndexChanged"
+                                            ItemsSource="{Binding Fornecedores}"
+                                            ItemDisplayBinding="{Binding RazaoSocial}" >
+                                    </Picker>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DowmInputFornPri"  FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblDepartamento" Text="Departamento" ></Label>
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="InputCodDepartamento" Placeholder="Cod" WidthRequest="50" Keyboard="Numeric" Unfocused="InputCodDepartamento_Unfocused"></Entry>
+                                    <Picker x:Name="InputDepartamento" Title="Toque para selecionar" WidthRequest="300"
+                                            SelectedIndexChanged="InputDepartamento_SelectedIndexChanged"
+                                              ItemsSource="{Binding Departamento}"
+                                            ItemDisplayBinding="{Binding Descricao}" 
+                                            ></Picker>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DowmInputDepartamento"  FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblSubDepartamento" Text="Sub Departamento" ></Label>
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="InputCodSubDepartamento" Placeholder="Cod" WidthRequest="50" Keyboard="Numeric"></Entry>
+                                    <Picker x:Name="InputSubDepartamento" Title="Toque para selecionar" WidthRequest="300"
+                                            SelectedIndexChanged="InputSubDepartamento_SelectedIndexChanged"
+                                            ItemsSource="{Binding SubDepartamento}"
+                                            ItemDisplayBinding="{Binding Descricao}" 
+                                            ></Picker>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DowmInputSubDepartamento"  FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblCorPredo" Text="Cor Predominante" ></Label>
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="InputCodCorPredo" Placeholder="Cod" WidthRequest="50" Keyboard="Numeric"></Entry>
+                                    <Picker x:Name="InputCorPredo" Title="Toque para selecionar" WidthRequest="300"
+                                            SelectedIndexChanged="InputCorPredo_SelectedIndexChanged"
+                                            ItemsSource="{Binding Cor}"
+                                            ItemDisplayBinding="{Binding Descricao}" 
+                                            ></Picker>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DowmInputCorPredo"  FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblQtdeConvers" Text="Qtde. Conversão" ></Label>
+                                <Entry x:Name="InputQtdeConvers" Placeholder="Qtde. Conversão" WidthRequest="150" Keyboard="Numeric"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputQtdeConvers" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblLocal1" Text="Local 1" ></Label>
+                                <Entry x:Name="InputLocal1" Placeholder="Local 1" WidthRequest="150" ></Entry>
+                                <Label TextColor="Red" x:Name="DownInputLocal1" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblLocal2" Text="Local 2" ></Label>
+                                <Entry x:Name="InputLocal2" Placeholder="Local 2" WidthRequest="150" ></Entry>
+                                <Label TextColor="Red" x:Name="DownInputLocal2" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <CheckBox x:Name="ChkValControl" ></CheckBox>
+                                    <Label TextColor="Black" x:Name="LblValControl" Text="Validade Controlada" VerticalOptions="Center"></Label>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DownInputValControl" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <CheckBox x:Name="ChkCargBalVal" ></CheckBox>
+                                    <Label TextColor="Black" x:Name="LblCargBalVal" Text="Carga de Balança Validade" VerticalOptions="Center"></Label>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DownInputCargBalVal" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="InputDias" Placeholder="Dias" WidthRequest="50" Keyboard="Numeric"></Entry>
+                                    <Label TextColor="Black" x:Name="LblInputDias" Text="Dias" VerticalOptions="Center"></Label>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DownInputDias" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="InputAecf" Placeholder="A. ECF" WidthRequest="80" Keyboard="Numeric"></Entry>
+                                    <Label TextColor="Black" x:Name="LblInputAecf" Text="A. ECF" VerticalOptions="Center"></Label>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DownInputAecf" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Frame BorderColor="Gray" CornerRadius="5" Padding="3" Margin="5" WidthRequest="650">
+                                <StackLayout>
+                                    <Label TextColor="Black" x:Name="TitleFrameTrib" Text="Tributos"></Label>
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label TextColor="Black" x:Name="LblTribOrigem" Text="Da Origem R$"  VerticalOptions="Center"></Label>
+                                                <Entry x:Name="InputTribOrigem" Placeholder="Trib Origem" Keyboard="Numeric" ></Entry>
+                                            </StackLayout>
+                                            <Label TextColor="Red" x:Name="DownInputTribOrigem" FontSize="Micro" IsVisible="False" ></Label>
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label TextColor="Black" x:Name="LblInputTribAgregado" Text="Agregado R$"  VerticalOptions="Center" ></Label>
+                                                <Entry x:Name="InputTribAgregado" Placeholder="Trib Agregado R$" Keyboard="Numeric"></Entry>
+                                            </StackLayout>
+                                            <Label TextColor="Red" x:Name="DownInputTribAgregado" FontSize="Micro" IsVisible="False" ></Label>
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <CheckBox x:Name="ChkCrrPorIndic" VerticalOptions="Center" ></CheckBox>
+                                                <Label TextColor="Black" x:Name="LblChkCrrPorIndic" Text="Corrigir por Índice"  VerticalOptions="Center" ></Label>
+                                            </StackLayout>
+                                            <Label TextColor="Red" x:Name="DownInputCrrPorIndic" FontSize="Micro" IsVisible="False" ></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                </controls:TabItem>
+                <controls:TabItem HeaderTabTextFontSize="14"
+                              HeaderText="Dados Nf-e e Nfc-e"
+                              HeaderTextColor="#0000FF" >
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblInputCncm" Text="C.N.C.M"  VerticalOptions="Center" ></Label>
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="InputCodCncm" Placeholder="COD" Keyboard="Numeric" WidthRequest="50"></Entry>
+                                    <Picker x:Name="InputCncm" Title="Toque para selecionar" WidthRequest="240" 
+                                            SelectedIndexChanged="InputCncm_SelectedIndexChanged"
+                                            ItemsSource="{Binding CNCM}"
+                                            ItemDisplayBinding="{Binding Descricao}" 
+                                            ></Picker>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DownInputCncm" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblInputCest" Text="C.E.S.T"  VerticalOptions="Center" ></Label>
+                                <Picker x:Name="InputCest" Title="C.E.S.T" WidthRequest="165"        
+                                            FontSize="15"
+                                            ItemsSource="{Binding CEST}"
+                                            ItemDisplayBinding="{Binding Descricao}" 
+                                        ></Picker>
+                                <Label TextColor="Red" x:Name="DownInputCest" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblSitTributa" Text="Situação Tributária"  VerticalOptions="Center" ></Label>
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="InputCodSitTributa" Placeholder="COD" Keyboard="Numeric" WidthRequest="50"></Entry>
+                                    <Picker x:Name="InputSitTributa" Title="Toque para selecionar" WidthRequest="675" 
+                                            FontSize="17"
+                                            SelectedIndexChanged="InputSitTributa_SelectedIndexChanged"
+                                            ItemsSource="{Binding SituacaoTributaria}"
+                                            ItemDisplayBinding="{Binding Descricao}" 
+                                            ></Picker>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DownInputSitTributa" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" >
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblInputCFOP" Text="CFOP"  VerticalOptions="Center" ></Label>
+                                <Entry x:Name="InputCFOP" Placeholder="CFOP" Keyboard="Numeric" WidthRequest="70"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputCFOP" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblInputTipoProd" Text="Tipo de Produto"  VerticalOptions="Center" ></Label>
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="InputCodTipoProd" Placeholder="COD" Keyboard="Numeric" WidthRequest="50"></Entry>
+                                    <Picker x:Name="InputTipoProd" Title="Toque para selecionar" WidthRequest="300" 
+                                            SelectedIndexChanged="InputTipoProd_SelectedIndexChanged"
+                                            ItemsSource="{Binding TipoProduto}"
+                                            ItemDisplayBinding="{Binding Descricao}" 
+                                            ></Picker>
+                                </StackLayout>
+                                <Label TextColor="Red" x:Name="DownInputTipoProd" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblInputICMS" Text="ICMS %"  VerticalOptions="Center" ></Label>
+                                <Entry x:Name="InputICMS" Placeholder="ICMS %" Keyboard="Numeric" WidthRequest="75"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputICMS" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblInputDifer" Text="DIFER %"  VerticalOptions="Center" ></Label>
+                                <Entry x:Name="InputDifer" Placeholder="DIFER %" Keyboard="Numeric" WidthRequest="75"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputDifer" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblInputIpi" Text="Ipi %"  VerticalOptions="Center" ></Label>
+                                <Entry x:Name="InputIpi" Placeholder="Ipi %" Keyboard="Numeric" WidthRequest="75"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputIpi" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblInputCodEx" Text="Cod. EX"  VerticalOptions="Center" ></Label>
+                                <Entry x:Name="InputCodEx" Placeholder="Cod. EX" Keyboard="Numeric" WidthRequest="75"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputCodEx" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblInputOrigem" Text="Origem"  VerticalOptions="Center" ></Label>
+                                <Picker x:Name="InputOrigem" Title="Toque para selecionar" WidthRequest="390" 
+                                            FontSize="17"
+                                            ItemsSource="{Binding Origem}"
+                                            ItemDisplayBinding="{Binding Descricao}" 
+                                        ></Picker>
+                                <Label TextColor="Red" x:Name="DownInputOrigem" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblInputCodGn" Text="Cód. GN"  VerticalOptions="Center" ></Label>
+                                <Entry x:Name="InputCodGn" Placeholder="Cod. EX" Keyboard="Numeric" WidthRequest="75"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputCodGn" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblInputCsonTribIcms" Text="C.S.O.N Tributação do ICMS pelo (SIMPLES NACIONAL)"  VerticalOptions="Center" ></Label>
+                                <Picker x:Name="InputCsonTribIcms" Title="Toque para selecionar" WidthRequest="980"
+                                            SelectedIndexChanged="InputCsonTribIcms_SelectedIndexChanged"
+                                            FontSize="18"
+                                            ItemsSource="{Binding CSON}"
+                                            ItemDisplayBinding="{Binding Descricao}" 
+                                        ></Picker>
+                                <Label TextColor="Red" x:Name="DownInputCsonTribIcms" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblCdSitua" Text="Código da Situação Tributária do PIS"></Label>
+                                <Picker x:Name="InputCdSitua" Title="Toque para selecionar" WidthRequest="510" 
+                                            ItemsSource="{Binding CodigoSitTibutaria}"
+                                            ItemDisplayBinding="{Binding Descricao}" 
+                                        ></Picker>
+                                <Label TextColor="Red" x:Name="DownInputCdSitua" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblInputIcmsOI" Text="ICMS O.I %"  VerticalOptions="Center" ></Label>
+                                <Entry x:Name="InputIcmsOI" Placeholder="Cod. EX" Keyboard="Numeric" WidthRequest="75"></Entry>
+                                <Label TextColor="Red" x:Name="DownInputIcmsOI" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <CheckBox x:Name="ChkPrdEscRel"  VerticalOptions="Start" ></CheckBox>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblPrdEscRel" Text="Prod. escala relevante" VerticalOptions="Start"></Label>
+                                <Entry x:Name="InputPrdEscRel" Keyboard="Numeric" WidthRequest="175" VerticalOptions="Start" ></Entry>
+                                <Label TextColor="Red" x:Name="DownInputPrdEscRel" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblFcp" Text="FCP %" VerticalOptions="Start"></Label>
+                                <Entry x:Name="InputFcp" Keyboard="Numeric" Placeholder="FCP %" WidthRequest="75" VerticalOptions="Start" ></Entry>
+                                <Label TextColor="Red" x:Name="DownInputFcp" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblFcpSt" Text="FCP ST %" VerticalOptions="Start"></Label>
+                                <Entry x:Name="InputFcpSt" Keyboard="Numeric" Placeholder="FCP ST %" WidthRequest="90" VerticalOptions="Start" ></Entry>
+                                <Label TextColor="Red" x:Name="DownInputFcpSt" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblBenFisc" Text="C. Beneficio Fiscal" VerticalOptions="Start"></Label>
+                                <Entry x:Name="InputBenFisc" Keyboard="Numeric" Placeholder="Beneficio Fiscal" WidthRequest="145" VerticalOptions="Start" ></Entry>
+                                <Label TextColor="Red" x:Name="DownInputBenFisc" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" >
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblCdSituaCofins" Text="Código da Situação Tributária do COFINS"></Label>
+                                <Picker x:Name="InputCdSituaCofins" Title="Toque para selecionar" WidthRequest="510"                                            
+                                            ItemsSource="{Binding CodigoSitTibutaria}"
+                                            ItemDisplayBinding="{Binding Descricao}" 
+                                        ></Picker>
+                                <Label TextColor="Red" x:Name="DownInputCdSituaCofins" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblPis" Text="PIS %"></Label>
+                                <Entry x:Name="InputPis" Placeholder="PIS %" WidthRequest="75" ></Entry>
+                                <Label TextColor="Red" x:Name="DownInputPis" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black"   x:Name="LblCdGrupComb" Text="Código Grupo de Combustíveis" VerticalOptions="Start"></Label>
+                                <Entry x:Name="InputCdGrupComb" Keyboard="Numeric" Placeholder="Código Grupo de Combustíveis" WidthRequest="255" VerticalOptions="Start" ></Entry>
+                                <Label TextColor="Red" x:Name="DownInputCdGrupComb" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblGlp" Text="GLP %"></Label>
+                                <Entry x:Name="InputGlp" Keyboard="Numeric" Placeholder="GLP %" WidthRequest="80" ></Entry>
+                                <Label TextColor="Red" x:Name="DownInputGlp" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblVPart" Text="V.Part"></Label>
+                                <Entry x:Name="InputVPart" Keyboard="Numeric" Placeholder="V Part" WidthRequest="80" ></Entry>
+                                <Label TextColor="Red" x:Name="DownInputVPart" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblCofins" Text="COFINS %"></Label>
+                                <Entry x:Name="InputCofins" Keyboard="Numeric" Placeholder="COFINS %" WidthRequest="90" ></Entry>
+                                <Label TextColor="Red" x:Name="DownInputCofins" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label TextColor="Black" x:Name="LblDescriAnp" Text="Descrição do Produto Conforme Anp"></Label>
+                                <Entry x:Name="InputDescriAnp" Keyboard="Numeric" Placeholder="Descrição do Produto Conforme Anp" WidthRequest="400" ></Entry>
+                                <Label TextColor="Red" x:Name="DownInputDescriAnp" FontSize="Micro" IsVisible="False" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </controls:TabItem>
+            </controls:TabView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

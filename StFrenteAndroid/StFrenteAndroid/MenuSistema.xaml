@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StFrenteAndroid.MenuSistema">
+    <ContentPage.Content>
+        <StackLayout Orientation="Horizontal" >
+            <StackLayout HorizontalOptions="Start">
+                <ImageButton Source="drawable/Produtos.png"  
+                    WidthRequest="150"
+                    HeightRequest="150"
+                    x:Name="Produtos"
+                    Clicked="Produtos_Clicked"
+                             />
+            </StackLayout>
+            <StackLayout>
+                <ImageButton Source="drawable/Caixa.png"  
+                    WidthRequest="150"
+                    HeightRequest="150"
+                    BackgroundColor="White"
+                    x:Name="Caixa"
+                    Clicked="Caixa_Clicked"
+                             />
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <ImageButton Source="drawable/Config.png"
+                    WidthRequest="150"
+                    HeightRequest="150"
+                    x:Name="Config"
+                    Clicked="Config_Clicked"
+                             />
+            </StackLayout>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
